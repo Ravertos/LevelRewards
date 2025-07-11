@@ -1,0 +1,43 @@
+import discord
+from discord.ext import commands
+import json
+import asyncio
+import mcrcon
+
+# Config laden
+with open('config.json') as f:
+    config = json.load(f)
+
+DISCORD_TOKEN = config["discord_token"]
+RCON_HOST = config["rcon"]["host"]
+RCON_PORT = config["rcon"]["port"]
+RCON_PASSWORD = config["rcon"]["password"]
+REWARDS = config["rewards"]
+
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f"Bot ist bereit! Eingeloggt als {bot.user.name}")
+
+@bot.command()
+async def belohnung(ctx, level: str):
+    key = f"level{level}"
+    if key not in REWARDS:
+        await ctx.send(f"❌ Für Level {level} ist keine Belohnung hinterlegt.")
+        return
+
+    command = REWARDS[key]
+
+    try:
+        with mcrcon.MCRcon(RCON_HOST, RCON_PASSWORD, port=RCON_PORT) as mcr:
+            resp = mcr.command(command)
+        await ctx.send(f"✅ Belohnung für Level {level} wurde ausgeführt! 🎁\n```
+{resp}
+```")
+    except Exception as e:
+        await ctx.send(f"❌ Fehler beim Ausführen des Befehls:
+```{str(e)}```")
+
+bot.run(DISCORD_TOKEN)

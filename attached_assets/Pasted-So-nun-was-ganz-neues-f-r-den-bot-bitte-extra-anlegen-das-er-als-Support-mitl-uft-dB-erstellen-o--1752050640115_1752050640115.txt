@@ -1,0 +1,122 @@
+So nun was ganz neues für den bot, bitte extra anlegen das er als Support mitläuft , dB erstellen o.ä 
+
+Plaintext:
+
+my-smart-bot/
+├── ai.js                 # DeepSeek-Integration
+├── config.json           # API-Keys, Server-Daten
+├── discord.js            # Discord-Bot mit Message-Handler
+├── rcon.js               # RCON-Kommunikation & Log-Analyse
+├── eventHandler.js       # Fehler und Fragen analysieren
+├── index.js              # Einstiegspunkt
+└── package.json
+
+Bash:
+
+npm install discord.js rcon-client axios
+
+
+Beispiel config.json
+{
+  "deepseek_api_key": "DEEPSEEK-KEY",
+  "deepseek_model": "deepseek-chat",
+  "discord_token": "DISCORD-BOT-TOKEN",
+  "discord_channel_id": "DISCORD-CHANNEL-ID",
+  "rcon_host": "127.0.0.1",
+  "rcon_port": 27020,
+  "rcon_password": "deinRCONPasswort",
+  "system_prompt": "Du bist eine Assistenz-KI für einen ARK-Server und Discord-Bot. Du hilfst bei Fehlern, Fragen und fehlenden Infos mit Lösungsvorschlägen."
+}
+
+eventHandler.Js:
+
+import { askDeepSeek } from './ai.js';
+
+const messageHistory = [
+  { role: "system", content: "Du bist eine KI, die hilft, Probleme in einem Bot- und Spielsystem zu analysieren und Lösungen vorzuschlagen." }
+];
+
+export async function handleEvent({ type, content }) {
+  const promptMap = {
+    error: `Fehler erkannt: ${content}`,
+    missing_info: `Es fehlt etwas: ${content}`,
+    user_question: `Frage vom User: ${content}`,
+    rcon_log: `Spielserver Log: ${content}`
+  };
+
+  const userPrompt = promptMap[type] || `Unbekanntes Event: ${JSON.stringify(content)}`;
+  messageHistory.push({ role: "user", content: userPrompt });
+
+  const aiReply = await askDeepSeek(messageHistory);
+  messageHistory.push({ role: "assistant", content: aiReply });
+
+  return aiReply;
+}
+
+Discord.js
+
+import { Client, GatewayIntentBits } from 'discord.js';
+import config from './config.json' assert { type: 'json' };
+import { handleEvent } from './eventHandler.js';
+
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+
+client.once('ready', () => {
+  console.log(`✅ Discord-Bot online: ${client.user.tag}`);
+});
+
+client.on('messageCreate', async (message) => {
+  if (message.channel.id !== config.discord_channel_id || message.author.bot) return;
+
+  const reply = await handleEvent({ type: "user_question", content: message.content });
+  await message.reply(`🤖 ${reply}`);
+});
+
+export function sendToDiscord(content) {
+  const channel = client.channels.cache.get(config.discord_channel_id);
+  if (channel) channel.send(content);
+}
+
+export function startDiscordBot() {
+  client.login(config.discord_token);
+}
+
+rcon.js:
+
+import { Rcon } from 'rcon-client';
+import config from './config.json' assert { type: 'json' };
+import { handleEvent } from './eventHandler.js';
+import { sendToDiscord } from './discord.js';
+
+export async function startRCON() {
+  const rcon = await Rcon.connect({
+    host: config.rcon_host,
+    port: config.rcon_port,
+    password: config.rcon_password
+  });
+
+  console.log("🛠 RCON verbunden.");
+
+  rcon.on('message', async (msg) => {
+    console.log(`[RCON] ${msg}`);
+
+    // Beispiel: Fehler erkennen oder Spieleraktionen filtern
+    if (msg.includes("error") || msg.includes("failed") || msg.includes("disconnected")) {
+      const aiResponse = await handleEvent({ type: "rcon_log", content: msg });
+      sendToDiscord(`⚠️ KI-Vorschlag zum RCON-Log: ${aiResponse}`);
+    }
+  });
+
+  // Testkommando senden
+  await rcon.send('ServerChat RCON verbunden mit KI-System');
+}
+
+Index.js:
+
+import { startDiscordBot } from './discord.js';
+import { startRCON } from './rcon.js';
+
+startDiscordBot();
+startRCON();
+
+

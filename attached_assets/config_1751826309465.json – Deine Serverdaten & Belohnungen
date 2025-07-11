@@ -1,0 +1,14 @@
+{
+    "discord_token": "HIER_DEIN_DISCORD_BOT_TOKEN_EINF\u00dcGEN",
+    "rcon": {
+        "host": "31.214.216.149",
+        "port": 11030,
+        "password": "ServervonPatrick"
+    },
+    "rewards": {
+        "level10": "cheat GiveItemNum 50 100 0 0",
+        "level20": "cheat GiveItemNum 1 1 0 0",
+        "level30": "cheat GiveItem \"Blueprint'/Game/Mods/MyMod/TekRifle.TekRifle'\" 1 0 0",
+        "level40": "cheat UnlockEngram \"EngramEntry_Fabricator_C\""
+    }
+}

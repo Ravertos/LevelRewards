@@ -1,0 +1,68 @@
+require('dotenv').config();
+const { Client, GatewayIntentBits, Events } = require('discord.js');
+const { Rcon } = require('rcon-client');
+const fs = require('fs-extra');
+const config = require('./config.json');
+
+const track = fs.pathExistsSync('rewards.json') ?
+  fs.readJsonSync('rewards.json') : {};
+
+async function handleClaim(player, level, channel) {
+  const lvl = parseInt(level);
+  const claims = track[player] || [];
+  const toGive = [];
+
+  for (const L of [1,10,20,50,70,100]) {
+    if (lvl >= L && !claims.includes(L)) toGive.push(...config.levels[L]);
+  }
+  if (!toGive.length) {
+    return channel.send(`${player} hat keine neuen Belohnungen oder ist niedriges Level.`);
+  }
+
+  const rcon = await Rcon.connect({
+    host: process.env.RCON_HOST,
+    port: parseInt(process.env.RCON_PORT),
+    password: process.env.RCON_PASSWORD
+  });
+
+  const list = await rcon.send('ListPlayers');
+  const match = list.split('\n').find(line => line.includes(player));
+  if (!match) {
+    channel.send(`${player} ist nicht auf dem Server.`);
+    await rcon.end();
+    return;
+  }
+  const steamID = match.split(':')[0];
+
+  for (const item of toGive) {
+    const cmd = item.cmd.replace('{player}', player);
+    await rcon.send(`GiveItemToPlayer ${steamID} ${cmd}`);
+  }
+  track[player] = (track[player] || []).concat(toGive.map(i => {
+    const lvlMatch = Object.keys(config.levels).find(L =>
+      config.levels[L].includes(i)
+    );
+    return parseInt(lvlMatch);
+  }));
+  await fs.writeJson('rewards.json', track, { spaces: 2 });
+  await rcon.end();
+
+  channel.send(`${player} bekam Belohnungen für Levels: ${toGive.map(i => i.cmd.match(/(level \d+|ServerChat)/) || level).join(', ')}`);
+}
+
+(async() => {
+  const client = new Client({
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
+  });
+  client.once(Events.ClientReady, () => {
+    console.log(`Bot bereit als ${client.user.tag}`);
+  });
+  client.on(Events.MessageCreate, msg => {
+    if (!config.listenChannels.includes(msg.channel.id)) return;
+    const match = msg.content.match(/^(.+?): \/claim (\d+)/);
+    if (match) {
+      handleClaim(match[1], match[2], msg.channel);
+    }
+  });
+  await client.login(process.env.DISCORD_TOKEN);
+})();
