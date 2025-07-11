@@ -1,0 +1,19 @@
+{
+  "save_info": {
+    "timestamp": "2025-07-07T23:13:25.811382",
+    "save_type": "Scheduled Autosave",
+    "bot_version": "2.0_auto_eos_tracking",
+    "total_players": 0,
+    "total_eos_mappings": 0,
+    "total_discord_links": 0
+  },
+  "rewards_data": {},
+  "eos_mapping_data": {},
+  "discord_mapping_data": {},
+  "config_levels": {},
+  "statistics": {
+    "total_rewards_given": 0,
+    "active_players": 0,
+    "level_distribution": {}
+  }
+}
