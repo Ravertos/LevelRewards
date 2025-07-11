@@ -1,0 +1,133 @@
+{
+  "deepseek_model": "deepseek-chat",
+  "deepseek_api_url": "https://api.deepseek.com/v1",
+  "system_prompt": "Du bist ein intelligenter ARK: Survival Ascended Server-Assistent mit dem Namen 'Smart Bot Agilitzia'. Du hilfst bei Server-Management, Spieler-Unterstützung, Performance-Optimierung und Discord-Bot-Funktionen. Du hast VOLLSTÄNDIGEN Zugriff auf alle 23 Discord-Commands und kannst diese automatisch ausführen, proaktiv vorschlagen und intelligent orchestrieren. Antworte präzise, hilfreich und auf Deutsch. Du hast Zugang zu RCON-Befehlen, Discord-Integration, KI-Analyse-Tools und direkter Command-Ausführung.",
+  "max_message_history": 50,
+  "available_discord_commands": [
+    "servermanager", "serverlist", "serverstatus", "setdefaultserver",
+    "link", "status", "claim", "deletereward", "players",
+    "eos", "eosdebug", "eositem", "broadcast", "ark",
+    "hb", "hblist", "testgive", "testblueprint",
+    "help", "botstatus", "botmonitor", "forcesync", "replitgreet"
+  ],
+  "proactive_monitoring": true,
+  "auto_response_enabled": true,
+  "feedback_interval": 30000,
+
+  "advanced_features": {
+    "predictive_analytics": true,
+    "behavior_analysis": true,
+    "performance_monitoring": true,
+    "security_scanning": true,
+    "mod_compatibility_check": true,
+    "automatic_optimization": true,
+    "crash_prediction": true,
+    "resource_forecasting": true,
+    "continuous_feedback": true,
+    "proactive_suggestions": true,
+    "live_monitoring": true
+  },
+
+  "analysis_settings": {
+    "performance_check_interval": 60000,
+    "predictive_analysis_interval": 300000,
+    "behavior_analysis_threshold": 3,
+    "security_scan_interval": 120000,
+    "crash_probability_threshold": 0.15,
+    "resource_warning_threshold": 0.7,
+    "player_anomaly_threshold": 2,
+    "continuous_feedback_interval": 30000,
+    "proactive_scan_interval": 45000,
+    "live_analysis_threshold": 1
+  },
+
+  "alert_system": {
+    "critical_alerts": true,
+    "security_alerts": true,
+    "performance_alerts": true,
+    "predictive_alerts": true,
+    "player_behavior_alerts": true,
+    "mod_conflict_alerts": true,
+    "continuous_feedback_alerts": true,
+    "proactive_suggestions": true,
+    "auto_action_enabled": true,
+    "alert_cooldown": 60000,
+    "feedback_alerts": true,
+    "live_monitoring_alerts": true
+  },
+
+  "machine_learning": {
+    "pattern_recognition": true,
+    "trend_analysis": true,
+    "anomaly_detection": true,
+    "learning_rate": 0.1,
+    "data_retention_days": 30,
+    "model_update_interval": 86400000
+  },
+
+  "performance_thresholds": {
+    "cpu_warning": 75,
+    "cpu_critical": 90,
+    "memory_warning": 80,
+    "memory_critical": 95,
+    "network_latency_warning": 150,
+    "network_latency_critical": 300,
+    "disk_usage_warning": 85,
+    "disk_usage_critical": 95
+  },
+
+  "security_settings": {
+    "exploit_detection": true,
+    "suspicious_behavior_monitoring": true,
+    "ip_reputation_check": true,
+    "player_validation": true,
+    "automatic_banning": false,
+    "security_log_retention": 14
+  },
+
+  "mod_management": {
+    "compatibility_checking": true,
+    "performance_impact_analysis": true,
+    "update_monitoring": true,
+    "conflict_detection": true,
+    "alternative_suggestions": true
+  },
+
+  "data_collection": {
+    "player_statistics": true,
+    "server_metrics": true,
+    "error_logs": true,
+    "performance_data": true,
+    "chat_analysis": false,
+    "anonymize_data": true
+  },
+
+  "autostart": {
+    "enabled": true,
+    "restart_on_crash": true,
+    "restart_on_file_change": true,
+    "max_restarts": 10,
+    "restart_delay": 5000,
+    "health_check_interval": 30000,
+    "auto_recovery": true,
+    "monitor_memory": true,
+    "monitor_cpu": true
+  },
+
+  "rewards": {
+    "10": [
+      "giveitemtoplayer {player} Blueprint'/Game/Structures/Stone/StoneWall.StoneWall' 10 0 0 false",
+      "giveitemtoplayer {player} Blueprint'/Game/Structures/Stone/StoneFoundation.StoneFoundation' 10 0 0 false"
+    ],
+    "20": [
+      "giveitemtoplayer {player} Blueprint'/Game/PrimalEarth/CoreBlueprints/Items/MetalIngot.MetalIngot' 400 0 0 false",
+      "giveitemtoplayer {player} Blueprint'/Game/Structures/Cooking/IndustrialGrill.IndustrialGrill' 1 0 0 false"
+    ],
+    "50": [
+      "giveitemtoplayer {player} Blueprint'/Game/Weapons/Tek/TekGenerator.TekGenerator' 1 0 0 false"
+    ],
+    "100": [
+      "giveitemtoplayer {player} Blueprint'/Game/Element/PrimalItemResource_Element.PrimalItemResource_Element' 1000 0 0 false"
+    ]
+  }
+}
