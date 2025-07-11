@@ -1,0 +1,130 @@
+{
+  "save_info": {
+    "timestamp": "2025-07-10T10:50:20.211403",
+    "save_type": "Scheduled Autosave",
+    "bot_version": "2.1_fixed_server_loading",
+    "total_players": 0,
+    "total_eos_mappings": 0,
+    "total_discord_links": 0,
+    "total_servers": 2
+  },
+  "rewards_data": {},
+  "eos_mapping_data": {},
+  "discord_mapping_data": {},
+  "server_data": {
+    "agilitzia_ragnarok": {
+      "name": "Agilitzia Ragnarok - (v68.16)",
+      "host": "31.214.216.149",
+      "port": 11030,
+      "password": "ServervonPatrick",
+      "map": "Ragnarok_WP",
+      "description": "ARK: Survival Ascended - Ragnarok Server mit 20 Slots",
+      "enabled": true,
+      "created_at": "2025-01-09T12:00:00.000Z",
+      "connection_tested": false,
+      "game_port": 5490,
+      "server_version": "v68.16",
+      "max_players": 20,
+      "server_type": "ARK: Survival Ascended",
+      "connection_timeout": 3,
+      "retry_attempts": 2,
+      "status": "OFFLINE"
+    },
+    "agilitzia_amissa": {
+      "name": "Agilitzia Amissa - (v68.16)",
+      "host": "31.214.216.252",
+      "port": 11990,
+      "password": "ServervonPatrick",
+      "map": "Amissa_WP",
+      "description": "ARK: Survival Ascended - Amissa Server mit 20 Slots",
+      "enabled": true,
+      "created_at": "2025-01-09T12:00:00.000Z",
+      "connection_tested": false,
+      "game_port": 5990,
+      "server_version": "v68.16",
+      "max_players": 20,
+      "server_type": "ARK: Survival Ascended",
+      "connection_timeout": 3,
+      "retry_attempts": 2,
+      "status": "ONLINE"
+    }
+  },
+  "config_levels": {
+    "1": [
+      {
+        "cmd": "GiveItemNum 1 1 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 2 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieHelmet'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieGloves'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhilliePants'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieShirt'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieBoots'\" 1 0 0"
+      }
+    ],
+    "10": [
+      {
+        "cmd": "GiveItemNum 9 10 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 10 10 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 12 10 0 0"
+      }
+    ],
+    "20": [
+      {
+        "cmd": "GiveItemNum 40 400 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Structures/IndustrialGrill.PrimalItem_IndustrialGrill'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 83 50 0 0"
+      }
+    ],
+    "50": [
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Structures/PrimalItemStructure_Generator.PrimalItemStructure_Generator'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 83 100 0 0"
+      }
+    ],
+    "70": [
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Weapons/PrimalItem_WeaponTekSword.PrimalItem_WeaponTekSword'\" 1 0 0"
+      },
+      {
+        "cmd": "ServerChat \"\ud83c\udf89 Congratulations {player}, you received your Level 70 Reward!\""
+      }
+    ],
+    "100": [
+      {
+        "cmd": "GiveItemNum 83 1000 0 0"
+      },
+      {
+        "cmd": "ServerChat \"\ud83c\udf8a Sehr gut, {player}, wie du das geschafft hast!\""
+      }
+    ]
+  },
+  "statistics": {
+    "total_rewards_given": 0,
+    "active_players": 0,
+    "level_distribution": {},
+    "total_servers": 2,
+    "enabled_servers": 2
+  }
+}

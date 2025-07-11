@@ -1,0 +1,23 @@
+{
+  "save_info": {
+    "timestamp": "2025-07-09T08:25:25.696611",
+    "save_type": "Scheduled Autosave",
+    "bot_version": "2.1_fixed_server_loading",
+    "total_players": 0,
+    "total_eos_mappings": 0,
+    "total_discord_links": 0,
+    "total_servers": 0
+  },
+  "rewards_data": {},
+  "eos_mapping_data": {},
+  "discord_mapping_data": {},
+  "server_data": {},
+  "config_levels": {},
+  "statistics": {
+    "total_rewards_given": 0,
+    "active_players": 0,
+    "level_distribution": {},
+    "total_servers": 0,
+    "enabled_servers": 0
+  }
+}

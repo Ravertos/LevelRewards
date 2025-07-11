@@ -1,0 +1,91 @@
+{
+  "save_info": {
+    "timestamp": "2025-07-09T07:40:10.696316",
+    "save_type": "Scheduled Autosave",
+    "bot_version": "2.0_auto_eos_tracking",
+    "total_players": 1,
+    "total_eos_mappings": 0,
+    "total_discord_links": 0
+  },
+  "rewards_data": {
+    "User_Gesperrt": []
+  },
+  "eos_mapping_data": {},
+  "discord_mapping_data": {},
+  "config_levels": {
+    "1": [
+      {
+        "cmd": "GiveItemNum 1 1 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 2 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieHelmet'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieGloves'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhilliePants'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieShirt'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Armor/Cloth/PrimalItemArmor_GhillieBoots'\" 1 0 0"
+      }
+    ],
+    "10": [
+      {
+        "cmd": "GiveItemNum 9 10 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 10 10 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 12 10 0 0"
+      }
+    ],
+    "20": [
+      {
+        "cmd": "GiveItemNum 40 400 0 0"
+      },
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Structures/IndustrialGrill.PrimalItem_IndustrialGrill'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 83 50 0 0"
+      }
+    ],
+    "50": [
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Structures/PrimalItemStructure_Generator.PrimalItemStructure_Generator'\" 1 0 0"
+      },
+      {
+        "cmd": "GiveItemNum 83 100 0 0"
+      }
+    ],
+    "70": [
+      {
+        "cmd": "GiveItem \"Blueprint'/Game/PrimalEarth/CoreBlueprints/Weapons/PrimalItem_WeaponTekSword.PrimalItem_WeaponTekSword'\" 1 0 0"
+      },
+      {
+        "cmd": "ServerChat \"\ud83c\udf89 Congratulations {player}, you received your Level 70 Reward!\""
+      }
+    ],
+    "100": [
+      {
+        "cmd": "GiveItemNum 83 1000 0 0"
+      },
+      {
+        "cmd": "ServerChat \"\ud83c\udf8a Sehr gut, {player}, wie du das geschafft hast!\""
+      }
+    ]
+  },
+  "statistics": {
+    "total_rewards_given": 0,
+    "active_players": 0,
+    "level_distribution": {}
+  }
+}

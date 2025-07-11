@@ -1,0 +1,22 @@
+{
+  "name": "levelrewards-bot-system",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Complete ARK LevelRewards Bot System with Python and Smart Bot",
+  "main": "main.py",
+  "scripts": {
+    "start": "python main.py",
+    "smart-bot": "cd smart-bot && npm start",
+    "install-smart-bot": "cd smart-bot && npm install",
+    "start-all": "python main.py & cd smart-bot && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.2.0",
+    "node-fetch": "^2.6.7",
+    "rcon": "^1.1.0"
+  }
+}

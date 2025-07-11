@@ -1,0 +1,38 @@
+{
+  "agilitzia_ragnarok": {
+    "name": "Agilitzia Ragnarok - (v68.16)",
+    "host": "31.214.216.149",
+    "port": 11030,
+    "password": "ServervonPatrick",
+    "map": "Ragnarok_WP",
+    "description": "ARK: Survival Ascended - Ragnarok Server mit 20 Slots",
+    "enabled": true,
+    "created_at": "2025-01-09T12:00:00.000Z",
+    "connection_tested": false,
+    "game_port": 5490,
+    "server_version": "v68.16",
+    "max_players": 20,
+    "server_type": "ARK: Survival Ascended",
+    "connection_timeout": 3,
+    "retry_attempts": 2,
+    "status": "OFFLINE"
+  },
+  "agilitzia_amissa": {
+    "name": "Agilitzia Amissa - (v68.16)",
+    "host": "31.214.216.252",
+    "port": 11990,
+    "password": "ServervonPatrick",
+    "map": "Amissa_WP",
+    "description": "ARK: Survival Ascended - Amissa Server mit 20 Slots",
+    "enabled": true,
+    "created_at": "2025-01-09T12:00:00.000Z",
+    "connection_tested": false,
+    "game_port": 5990,
+    "server_version": "v68.16",
+    "max_players": 20,
+    "server_type": "ARK: Survival Ascended",
+    "connection_timeout": 3,
+    "retry_attempts": 2,
+    "status": "ONLINE"
+  }
+}
